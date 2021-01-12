@@ -30,8 +30,8 @@ do
     read -p  "Specify the number of cores to use in running the MPIc program $1 : " user_core
 done
 
-mpic++ -O -o $1 $2 
+mpic++ -O -o a.out $1 
 
- mpirun -n $user_core ./$1
+ mpirun -n $user_core ./a.out
 
-rm $1
+rm a.out

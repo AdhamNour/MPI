@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
     if (rank == 0)
     {
         printf("please enter the upper limit of i\n");
-        //scanf("%d",&n);
+        scanf("%d",&n);
         for (int dist = 1; dist < size; dist++)
         {
             MPI_Send(&n,1,MPI_INT,dist,0,MPI_COMM_WORLD);
