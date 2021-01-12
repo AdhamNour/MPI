@@ -1,11 +1,9 @@
 #include "math.h"
-#include <iostream>
-using namespace std;
 
-long long factorial(const long long &x)
+double factorial(const double &x)
 {
-    long long result = 1;
-    for (long long i = 1; i <= x; i++)
+    double result = 1;
+    for (double i = 1; i <= x; i++)
     {
         result *= i;
     }
@@ -14,11 +12,11 @@ long long factorial(const long long &x)
  double calculate_pi()
 {
      double result = 0.0;
-    for (long long int i = 0 ;i <= 50; i++)
+    for (double  i = 0 ;i <= 98; i++)
     {
-         double numerator_1 = pow(factorial(i), 2);
-         double numerator_2 = pow(2, i + 1);
-         double denominator = factorial(2 * i + 1);
+         long double numerator_1 = pow(factorial(i), 2);
+         long double numerator_2 = pow(2, i + 1);
+         long double denominator = factorial(2 * i + 1);
         result+= (numerator_1*numerator_2)/denominator;
     }
     return result;
@@ -26,6 +24,7 @@ long long factorial(const long long &x)
 
 int main(void)
 {
-    cout << calculate_pi() << endl;
+   
+    
     return 0;
 }

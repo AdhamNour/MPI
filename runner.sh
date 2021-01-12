@@ -32,6 +32,6 @@ done
 
 mpic++ -O -o $1 $2 
 
-mpirun -n $user_core ./$1
+time mpirun -n $user_core ./$1
 
 rm $1
