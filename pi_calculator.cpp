@@ -32,21 +32,21 @@ int main(int argc, char *argv[])
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
     
-    // if (rank == 0)
-    // {
-    //     printf("please enter the upper limit of i\n");
-    //     scanf("%d",n);
-    //     for (int dist = 1; dist < size; dist++)
-    //     {
-    //         MPI_Send(&n,1,MPI_INT,dist,0,MPI_COMM_WORLD);
-    //     }
+    if (rank == 0)
+    {
+        printf("please enter the upper limit of i\n");
+        scanf("%d",&n);
+        for (int dist = 1; dist < size; dist++)
+        {
+            MPI_Send(&n,1,MPI_INT,dist,0,MPI_COMM_WORLD);
+        }
         
-    // }
-    // else
-    // {
-    //     MPI_Recv(&n,1,MPI_INT,0,0,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
-    // }
-    
+    }
+    else
+    {
+        MPI_Recv(&n,1,MPI_INT,0,0,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
+    }
+
     local_n = n / size;
     local_start = rank * local_n;
     local_end = (rank + 1) * local_n - 1;
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
             MPI_Recv(&local_pi,1,MPI_LONG_DOUBLE,sender,0,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
             total_pi += local_pi;
         }
-        printf("The valuse of pi is %.25Le",total_pi);
+        printf("The valuse of pi is %.25Le\n",total_pi);
         
     }
     else
