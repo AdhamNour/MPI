@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
     {
         MPI_Recv(&n,1,MPI_INT,0,0,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
     }
-
+    double start = MPI_Wtime();
     local_n = n / size;
     local_start = rank * local_n;
     local_end = (rank + 1) * local_n - 1;
@@ -60,6 +60,8 @@ int main(int argc, char *argv[])
             total_pi += local_pi;
         }
         printf("The valuse of pi is %.25Le\n",total_pi);
+        printf("The total time for calculation of pi is %.25e\n",MPI_Wtime()-start);
+
         
     }
     else
@@ -68,5 +70,6 @@ int main(int argc, char *argv[])
     }
     
     MPI_Finalize();
+
     return 0;
 }
