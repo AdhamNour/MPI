@@ -30,6 +30,9 @@ int main(int argc, char *argv[])
     int rank, size;
     int  n , local_n, local_start, local_end;
     long double local_pi, total_pi;
+    if(argc != 1){
+        printf("%c",argv[1]);
+    }
 
     MPI_Init(NULL, NULL);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
