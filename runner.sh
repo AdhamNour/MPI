@@ -32,6 +32,6 @@ done
 
 mpic++ -O -o a.out $1 
 
- mpirun -n $user_core ./a.out
+mpirun -n $user_core ./a.out
 
 rm a.out

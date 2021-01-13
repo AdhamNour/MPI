@@ -24,8 +24,12 @@ echo "your cpu contains $no_of_cores cores"
 mpic++ -O -o a.out $1 
 for (( c=1; c<=$no_of_cores; c++ ))
 do  
+    for (( x=1; x<=$no_of_cores; x++ ))
+do  
     echo "running program on $c CPUs"
    mpirun -n $c ./a.out
    echo "finished running program on $c CPU"
+
+done
 
 done
